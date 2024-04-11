@@ -2,13 +2,17 @@ const fs = require("fs");
 const path = require("path");
 
 const schemas_directory_path = path.join(__dirname, "source/schemas");
-const main_file_path = path.join(__dirname, "source/index.js")
-
+const main_file_path = path.join(__dirname, "source/index.js");
 
 async function tweak() {
   const schemas = fs
     .readdirSync(schemas_directory_path)
     .filter((file) => file.endsWith(".bundled.json"));
+
+  const symbols = [];
+
+  fs.unlinkSync(main_file_path)
+
   schemas.forEach(async (schema_file, index) => {
     const name = schema_file.split(".").at(0);
 
@@ -17,7 +21,7 @@ async function tweak() {
     const schema = require(schema_path);
 
     const type = `
-    
+
     const ${name} = /** @type {const} @satisfies {import('json-schema-to-ts').JSONSchema} */(${JSON.stringify(
       schema,
       null,
@@ -31,10 +35,16 @@ async function tweak() {
     
     `;
 
-    fs.appendFileSync(main_file_path, type, {
-      flag: index ? fs.constants.O_WRONLY : fs.constants.O_TRUNC | fs.constants.O_WRONLY,
-    })
+    fs.appendFileSync(main_file_path, type);
+
+    symbols.push(name);
   });
+
+  const exports = `
+    module.exports = { ${symbols.join(",")}}
+  `;
+
+  fs.appendFileSync(main_file_path, exports);
 }
 
 tweak();

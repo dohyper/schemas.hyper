@@ -1,14 +1,24 @@
 /**
+ * ConfigurationDefinition
+ */
+export type ConfigurationDefinition = import('json-schema-to-ts').FromSchema<typeof ConfigurationDefinition>;
+/**
  * ResourceDefinition
  */
-type ResourceDefinition = import('json-schema-to-ts').FromSchema<typeof ResourceDefinition>;
-declare namespace ResourceDefinition {
-    export let $schema: "https://json-schema.org/draft/2020-12/schema";
-    export let type: "object";
+export type ResourceDefinition = import('json-schema-to-ts').FromSchema<typeof ResourceDefinition>;
+export namespace ConfigurationDefinition {
+    let $schema: "https://json-schema.org/draft/2020-12/schema";
+    let type: "object";
+}
+export namespace ResourceDefinition {
+    let $schema_1: "https://json-schema.org/draft/2020-12/schema";
+    export { $schema_1 as $schema };
+    let type_1: "object";
+    export { type_1 as type };
     export namespace properties {
         export namespace name {
-            let type_1: "string";
-            export { type_1 as type };
+            let type_2: "string";
+            export { type_2 as type };
         }
         export namespace applicability {
             let $ref: "#/$defs/applicability";
@@ -23,11 +33,11 @@ declare namespace ResourceDefinition {
             export { $ref_2 as $ref };
         }
         export namespace required {
-            let type_2: "array";
-            export { type_2 as type };
+            let type_3: "array";
+            export { type_3 as type };
             export namespace items {
-                let type_3: "string";
-                export { type_3 as type };
+                let type_4: "string";
+                export { type_4 as type };
             }
         }
     }

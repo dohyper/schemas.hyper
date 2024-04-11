@@ -1,18 +1,4 @@
-
-
-    const ConfigurationDefinition = /** @type {const} @satisfies {import('json-schema-to-ts').JSONSchema} */({
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "type": "object"
-})
-
-    /**
-     * ConfigurationDefinition
-     * @typedef {import('json-schema-to-ts').FromSchema<typeof ConfigurationDefinition>} ConfigurationDefinition
-     */
-    
-    
-
-    const ResourceDefinition = /** @type {const} @satisfies {import('json-schema-to-ts').JSONSchema} */({
+{
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "type": "object",
   "properties": {
@@ -544,13 +530,4 @@
       "$dynamicAnchor": "meta"
     }
   }
-})
-
-    /**
-     * ResourceDefinition
-     * @typedef {import('json-schema-to-ts').FromSchema<typeof ResourceDefinition>} ResourceDefinition
-     */
-    
-    
-    module.exports = { ConfigurationDefinition,ResourceDefinition}
-  
+}
