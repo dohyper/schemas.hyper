@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.5](https://github.com/dohyper/schemas.hyper/compare/v0.0.4...v0.0.5) (2024-04-11)
+
+
+### Bug Fixes
+
+* draft-07 ftw, dialect not recognized cuz https instead of http ([2e3e087](https://github.com/dohyper/schemas.hyper/commit/2e3e087373a0c273c7cf158c186c1d30ad75f582))
+
 ### [0.0.4](https://github.com/dohyper/schemas.hyper/compare/v0.0.3...v0.0.4) (2024-04-11)
 
 ### [0.0.3](https://github.com/dohyper/schemas.hyper/compare/v0.0.2...v0.0.3) (2024-04-11)
