@@ -22,21 +22,21 @@ async function bundle() {
 
     dialect.registerSchema(schema, uri);
 
-    // try {
-    //   const output = await dialect.validate(uri);
-    //   console.log({ output });
-    // } catch (error) {
-    //   console.log(error.output);
-    // }
+    try {
+      const output = await dialect.validate(uri);
+      console.log({ output });
+    } catch (error) {
+      console.log(error.output);
+    }
 
-    // const bundled = await bundler.bundle(uri);
+    const bundled = await bundler.bundle(uri);
 
-    // const bundled_schema_path = path.join(
-    //   schemas_directory_path,
-    //   schema_file.replace(".json", ".bundled.json")
-    // );
+    const bundled_schema_path = path.join(
+      schemas_directory_path,
+      schema_file.replace(".json", ".bundled.json")
+    );
 
-    // fs.writeFileSync(bundled_schema_path, JSON.stringify(bundled, null, 2));
+    fs.writeFileSync(bundled_schema_path, JSON.stringify(bundled, null, 2));
   });
 }
 

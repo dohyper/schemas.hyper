@@ -1,18 +1,4 @@
-
-
-    const ConfigurationDefinition = /** @type {const} @satisfies {import('json-schema-to-ts').JSONSchema} */({
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "type": "object"
-})
-
-    /**
-     * ConfigurationDefinition
-     * @typedef {import('json-schema-to-ts').FromSchema<typeof ConfigurationDefinition>} ConfigurationDefinitionType
-     */
-    
-    
-
-    const ResourceDefinition = /** @type {const} @satisfies {import('json-schema-to-ts').JSONSchema} */({
+{
   "$schema": "http://json-schema.org/draft-07/schema#",
   "type": "object",
   "properties": {
@@ -393,13 +379,4 @@
       "default": true
     }
   }
-})
-
-    /**
-     * ResourceDefinition
-     * @typedef {import('json-schema-to-ts').FromSchema<typeof ResourceDefinition>} ResourceDefinitionType
-     */
-    
-    
-    module.exports = { ConfigurationDefinition,ResourceDefinition}
-  
+}
