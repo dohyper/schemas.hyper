@@ -1,0 +1,23 @@
+{
+  "name": "@dohyper/schemas",
+  "version": "0.0.0",
+  "description": "",
+  "main": "source/index.js",
+  "scripts": {
+    "build": "npm run build:bundle && npm run build:tweak && npm run build:types",
+    "build:bundle": "node bundle.js",
+    "build:tweak": "node tweak.js",
+    "build:types": "npx tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "M'bark Erras",
+  "license": "ISC",
+  "dependencies": {
+    "json-schema-to-ts": "^3.0.1"
+  },
+  "devDependencies": {
+    "@hyperjump/json-schema": "^1.8.0",
+    "typescript": "^5.4.5"
+  },
+  "types": "./build/index.d.ts"
+}

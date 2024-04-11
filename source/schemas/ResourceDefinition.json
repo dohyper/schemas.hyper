@@ -1,0 +1,138 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "properties": {
+        "name": {
+            "type": "string"
+        },
+        "applicability": {
+            "$ref": "#/$defs/applicability"
+        },
+        "properties": {
+            "$ref": "#/$defs/properties"
+        },
+        "relations": {
+            "$ref": "#/$defs/relations"
+        },
+        "required": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        }
+    },
+    "required": [
+        "name"
+    ],
+    "oneOf": [
+        {
+            "required": [
+                "properties"
+            ]
+        },
+        {
+            "required": [
+                "relations"
+            ]
+        }
+    ],
+    "$defs": {
+        "applicability": {
+            "type": "object",
+            "patternProperties": {
+                "^create|update|delete$": {
+                    "$ref": "#/$defs/operation"
+                },
+                "read": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "properties": {
+            "type": "object",
+            "patternProperties": {
+                "^[a-zA-Z0-9_]+$": {
+                    "$ref": "https://json-schema.org/draft/2020-12/schema"
+                }
+            }
+        },
+        "relations": {
+            "type": "object",
+            "patternProperties": {
+                "^[a-zA-Z0-9_]+$": {
+                    "$ref": "#/$defs/relation"
+                }
+            }
+        },
+        "relation": {
+            "type": "object",
+            "properties": {
+                "resource": {
+                    "type": "string"
+                },
+                "cardinality": {
+                    "$ref": "#/$defs/cardinality"
+                },
+                "bidirectionality": {
+                    "$ref": "#/$defs/bidirectionality"
+                },
+                "constraints": {
+                    "$ref": "#/$defs/constraints"
+                }
+            },
+            "required": [
+                "resource",
+                "cardinality"
+            ]
+        },
+        "cardinality": {
+            "type": "string",
+            "enum": [
+                "to-one",
+                "to-many"
+            ]
+        },
+        "constraints": {
+            "type": "object",
+            "properties": {
+                "unique": {
+                    "type": "boolean"
+                }
+            },
+            "additionalProperties": false
+        },
+        "operation": {
+            "oneOf": [
+                {
+                    "type": "boolean"
+                },
+                {
+                    "type": "object",
+                    "properties": {
+                        "transactional": {
+                            "type": "boolean"
+                        }
+                    },
+                    "additionalProperties": false
+                }
+            ]
+        },
+        "projection": {
+            "$ref": "#/$defs/relation"
+        },
+        "bidirectionality": {
+            "type": "object",
+            "properties": {
+                "relation": {
+                    "type": "string"
+                },
+                "projection": {
+                    "$ref": "#/$defs/projection"
+                }
+            },
+            "required": [
+                "relation"
+            ]
+        }
+    }
+}
