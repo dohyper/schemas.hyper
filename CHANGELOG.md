@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.6](https://github.com/dohyper/schemas.hyper/compare/v0.0.5...v0.0.6) (2024-04-11)
+
+
+### Bug Fixes
+
+* sorry ([8373f08](https://github.com/dohyper/schemas.hyper/commit/8373f084cc0025eeae3af0b76e6c9ed2e24ec8bf))
+
 ### [0.0.5](https://github.com/dohyper/schemas.hyper/compare/v0.0.4...v0.0.5) (2024-04-11)
 
 
