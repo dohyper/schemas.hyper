@@ -1,11 +1,11 @@
 /**
  * ConfigurationDefinition
  */
-export type ConfigurationDefinition = import('json-schema-to-ts').FromSchema<typeof ConfigurationDefinition>;
+export type ConfigurationDefinitionType = import('json-schema-to-ts').FromSchema<typeof ConfigurationDefinition>;
 /**
  * ResourceDefinition
  */
-export type ResourceDefinition = import('json-schema-to-ts').FromSchema<typeof ResourceDefinition>;
+export type ResourceDefinitionType = import('json-schema-to-ts').FromSchema<typeof ResourceDefinition>;
 export namespace ConfigurationDefinition {
     let $schema: "https://json-schema.org/draft/2020-12/schema";
     let type: "object";

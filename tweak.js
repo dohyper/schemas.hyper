@@ -30,7 +30,7 @@ async function tweak() {
 
     /**
      * ${name}
-     * @typedef {import('json-schema-to-ts').FromSchema<typeof ${name}>} ${name}
+     * @typedef {import('json-schema-to-ts').FromSchema<typeof ${name}>} ${name}Type
      */
     
     `;

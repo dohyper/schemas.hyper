@@ -7,7 +7,7 @@
 
     /**
      * ConfigurationDefinition
-     * @typedef {import('json-schema-to-ts').FromSchema<typeof ConfigurationDefinition>} ConfigurationDefinition
+     * @typedef {import('json-schema-to-ts').FromSchema<typeof ConfigurationDefinition>} ConfigurationDefinitionType
      */
     
     
@@ -548,7 +548,7 @@
 
     /**
      * ResourceDefinition
-     * @typedef {import('json-schema-to-ts').FromSchema<typeof ResourceDefinition>} ResourceDefinition
+     * @typedef {import('json-schema-to-ts').FromSchema<typeof ResourceDefinition>} ResourceDefinitionType
      */
     
     
