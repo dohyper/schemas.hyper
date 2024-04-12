@@ -3,6 +3,15 @@ const path = require("path");
 
 const schemas_directory_path = path.join(__dirname, "source/schemas");
 
+// function flatten(schema) {
+//   /**
+//    * flatten takes a compound schema and simplifies it even more by centralizing all the definitions in the root of the compound schema.
+//    * this can help simplify json schema implementations with a bad dereferencing. 
+//    */
+//   const definitions = schema.definitions
+
+// }
+
 async function bundle() {
   const dialect = await import("@hyperjump/json-schema/draft-07");
 
@@ -29,7 +38,8 @@ async function bundle() {
       console.log(error.output);
     }
 
-    const bundled = await bundler.bundle(uri);
+    const bundled = await bundler.bundle(uri, {
+    });
 
     const bundled_schema_path = path.join(
       schemas_directory_path,
