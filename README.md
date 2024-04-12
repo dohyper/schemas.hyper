@@ -11,5 +11,5 @@ types are inferred from the json schemas and emitted using [json-schema-to-ts](h
 the building of this package conists of the following steps:
 
 1. `npm run build:bundle`: bundling the schemas *so that the type inference can be done*.
-2. `npm run build:tweak`: injecting the bundled schemas to `source/index.js` so that the types inference can be done.
+2. `npm run build:lockin`: injecting the bundled schemas to `source/index.js` so that the types inference can be done.
 3. `npm run build:types`: emitting .d.ts with types from `sourc/index.js`, [see](https://www.typescriptlang.org/docs/handbook/declaration-files/dts-from-js.html).
