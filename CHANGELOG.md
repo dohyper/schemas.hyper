@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.8](https://github.com/dohyper/schemas.hyper/compare/v0.0.7...v0.0.8) (2024-04-12)
+
+
+### Features
+
+* fixing bundling by using another json schema ref impl ([0574dcd](https://github.com/dohyper/schemas.hyper/commit/0574dcd9a50b8b6e39f689bec229605b618247af))
+
 ### [0.0.7](https://github.com/dohyper/schemas.hyper/compare/v0.0.6...v0.0.7) (2024-04-12)
 
 
