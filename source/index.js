@@ -53,14 +53,21 @@
   "definitions": {
     "applicability": {
       "type": "object",
-      "patternProperties": {
-        "^create|update|delete$": {
+      "properties": {
+        "create": {
           "$ref": "#/definitions/operation"
         },
         "read": {
           "type": "boolean"
+        },
+        "update": {
+          "$ref": "#/definitions/operation"
+        },
+        "delete": {
+          "$ref": "#/definitions/operation"
         }
-      }
+      },
+      "additionalProperties": false
     },
     "properties": {
       "type": "object",
@@ -310,7 +317,8 @@
           },
           "default": true
         }
-      }
+      },
+      "minProperties": 1
     },
     "relations": {
       "type": "object",
@@ -318,7 +326,8 @@
         "^[a-zA-Z0-9_]+$": {
           "$ref": "#/definitions/relation"
         }
-      }
+      },
+      "minProperties": 1
     },
     "relation": {
       "type": "object",
@@ -369,6 +378,9 @@
               "type": "boolean"
             }
           },
+          "required": [
+            "transactional"
+          ],
           "additionalProperties": false
         }
       ]

@@ -39,14 +39,21 @@
     "definitions": {
         "applicability": {
             "type": "object",
-            "patternProperties": {
-                "^create|update|delete$": {
+            "properties": {
+                "create": {
                     "$ref": "#/definitions/operation"
                 },
                 "read": {
                     "type": "boolean"
+                },
+                "update": {
+                    "$ref": "#/definitions/operation"
+                },
+                "delete": {
+                    "$ref": "#/definitions/operation"
                 }
-            }
+            },
+            "additionalProperties": false
         },
         "properties": {
             "type": "object",
@@ -54,7 +61,8 @@
                 "^[a-zA-Z0-9_]+$": {
                     "$ref": "http://json-schema.org/draft-07/schema"
                 }
-            }
+            },
+            "minProperties": 1
         },
         "relations": {
             "type": "object",
@@ -62,7 +70,8 @@
                 "^[a-zA-Z0-9_]+$": {
                     "$ref": "#/definitions/relation"
                 }
-            }
+            },
+            "minProperties": 1
         },
         "relation": {
             "type": "object",
@@ -113,6 +122,9 @@
                             "type": "boolean"
                         }
                     },
+                    "required": [
+                        "transactional"
+                    ],
                     "additionalProperties": false
                 }
             ]

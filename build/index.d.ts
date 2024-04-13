@@ -52,20 +52,33 @@ export namespace ResourceDefinition {
         export namespace applicability_1 {
             let type_5: "object";
             export { type_5 as type };
-            export let patternProperties: {
-                readonly "^create|update|delete$": {
-                    readonly $ref: "#/definitions/operation";
-                };
-                readonly read: {
-                    readonly type: "boolean";
-                };
-            };
+            export namespace properties_2 {
+                export namespace create {
+                    let $ref_3: "#/definitions/operation";
+                    export { $ref_3 as $ref };
+                }
+                export namespace read {
+                    let type_6: "boolean";
+                    export { type_6 as type };
+                }
+                export namespace update {
+                    let $ref_4: "#/definitions/operation";
+                    export { $ref_4 as $ref };
+                }
+                export namespace _delete {
+                    let $ref_5: "#/definitions/operation";
+                    export { $ref_5 as $ref };
+                }
+                export { _delete as delete };
+            }
+            export { properties_2 as properties };
+            export let additionalProperties: false;
         }
         export { applicability_1 as applicability };
-        export namespace properties_2 {
-            let type_6: "object";
-            export { type_6 as type };
-            let patternProperties_1: {
+        export namespace properties_3 {
+            let type_7: "object";
+            export { type_7 as type };
+            export let patternProperties: {
                 readonly "^[a-zA-Z0-9_]+$": {
                     readonly $schema: "http://json-schema.org/draft-07/schema#";
                     readonly $id: "http://json-schema.org/draft-07/schema#";
@@ -289,63 +302,66 @@ export namespace ResourceDefinition {
                     readonly default: true;
                 };
             };
-            export { patternProperties_1 as patternProperties };
+            export let minProperties: 1;
         }
-        export { properties_2 as properties };
+        export { properties_3 as properties };
         export namespace relations_1 {
-            let type_7: "object";
-            export { type_7 as type };
-            let patternProperties_2: {
+            let type_8: "object";
+            export { type_8 as type };
+            let patternProperties_1: {
                 readonly "^[a-zA-Z0-9_]+$": {
                     readonly $ref: "#/definitions/relation";
                 };
             };
-            export { patternProperties_2 as patternProperties };
+            export { patternProperties_1 as patternProperties };
+            let minProperties_1: 1;
+            export { minProperties_1 as minProperties };
         }
         export { relations_1 as relations };
         export namespace relation {
-            let type_8: "object";
-            export { type_8 as type };
-            export namespace properties_3 {
+            let type_9: "object";
+            export { type_9 as type };
+            export namespace properties_4 {
                 namespace resource {
-                    let type_9: "string";
-                    export { type_9 as type };
+                    let type_10: "string";
+                    export { type_10 as type };
                 }
                 namespace cardinality {
-                    let $ref_3: "#/definitions/cardinality";
-                    export { $ref_3 as $ref };
+                    let $ref_6: "#/definitions/cardinality";
+                    export { $ref_6 as $ref };
                 }
                 namespace bidirectionality {
-                    let $ref_4: "#/definitions/bidirectionality";
-                    export { $ref_4 as $ref };
+                    let $ref_7: "#/definitions/bidirectionality";
+                    export { $ref_7 as $ref };
                 }
                 namespace constraints {
-                    let $ref_5: "#/definitions/constraints";
-                    export { $ref_5 as $ref };
+                    let $ref_8: "#/definitions/constraints";
+                    export { $ref_8 as $ref };
                 }
             }
-            export { properties_3 as properties };
+            export { properties_4 as properties };
             let required_2: readonly ["resource", "cardinality"];
             export { required_2 as required };
         }
         export namespace cardinality_1 {
-            let type_10: "string";
-            export { type_10 as type };
+            let type_11: "string";
+            export { type_11 as type };
             let _enum: readonly ["to-one", "to-many"];
             export { _enum as enum };
         }
         export { cardinality_1 as cardinality };
         export namespace constraints_1 {
-            let type_11: "object";
-            export { type_11 as type };
-            export namespace properties_4 {
+            let type_12: "object";
+            export { type_12 as type };
+            export namespace properties_5 {
                 namespace unique {
-                    let type_12: "boolean";
-                    export { type_12 as type };
+                    let type_13: "boolean";
+                    export { type_13 as type };
                 }
             }
-            export { properties_4 as properties };
-            export let additionalProperties: false;
+            export { properties_5 as properties };
+            let additionalProperties_1: false;
+            export { additionalProperties_1 as additionalProperties };
         }
         export { constraints_1 as constraints };
         export namespace operation {
@@ -358,30 +374,31 @@ export namespace ResourceDefinition {
                         readonly type: "boolean";
                     };
                 };
+                readonly required: readonly ["transactional"];
                 readonly additionalProperties: false;
             }];
             export { oneOf_1 as oneOf };
         }
         export namespace projection {
-            let $ref_6: "#/definitions/relation";
-            export { $ref_6 as $ref };
+            let $ref_9: "#/definitions/relation";
+            export { $ref_9 as $ref };
         }
         export namespace bidirectionality_1 {
-            let type_13: "object";
-            export { type_13 as type };
-            export namespace properties_5 {
+            let type_14: "object";
+            export { type_14 as type };
+            export namespace properties_6 {
                 export namespace relation_1 {
-                    let type_14: "string";
-                    export { type_14 as type };
+                    let type_15: "string";
+                    export { type_15 as type };
                 }
                 export { relation_1 as relation };
                 export namespace projection_1 {
-                    let $ref_7: "#/definitions/relation";
-                    export { $ref_7 as $ref };
+                    let $ref_10: "#/definitions/relation";
+                    export { $ref_10 as $ref };
                 }
                 export { projection_1 as projection };
             }
-            export { properties_5 as properties };
+            export { properties_6 as properties };
             let required_3: readonly ["relation"];
             export { required_3 as required };
         }

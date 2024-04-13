@@ -4,7 +4,7 @@
   "description": "",
   "main": "source/index.js",
   "scripts": {
-    "development": "nodemon --watch './*.js' --exec npm run build",
+    "development": "nodemon --watch './*.js' --watch './source/schemas/ResourceDefinition.json' --exec npm run build",
     "build": "npm run build:bundle && npm run build:lockin && npm run build:types",
     "build:bundle": "node bundle.js",
     "build:lockin": "node lockin.js",

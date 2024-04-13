@@ -1,7 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 
-const ref = require("@apidevtools/json-schema-ref-parser")
+const ref = require("@apidevtools/json-schema-ref-parser");
 
 const schemas_directory_path = path.join(__dirname, "source/schemas");
 
@@ -16,7 +16,7 @@ async function bundle() {
 
     const schema = require(schema_path);
 
-    const bundled = await ref.bundle(schema)
+    const bundled = await ref.bundle(schema);
 
     const bundled_schema_path = path.join(
       schemas_directory_path,
@@ -28,3 +28,24 @@ async function bundle() {
 }
 
 bundle();
+
+/*
+
+
+
+
+
+    "oneOf": [
+        {
+            "required": [
+                "properties"
+            ]
+        },
+        {
+            "required": [
+                "relations"
+            ]
+        }
+    ],
+
+    */
