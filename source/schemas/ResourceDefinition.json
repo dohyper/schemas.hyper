@@ -1,18 +1,18 @@
 {
-    "$schema": "http://json-schema.org/draft-07/schema",
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
     "type": "object",
     "properties": {
         "name": {
             "type": "string"
         },
         "applicability": {
-            "$ref": "#/definitions/applicability"
+            "$ref": "#/$defs/applicability"
         },
         "properties": {
-            "$ref": "#/definitions/properties"
+            "$ref": "#/$defs/properties"
         },
         "relations": {
-            "$ref": "#/definitions/relations"
+            "$ref": "#/$defs/relations"
         },
         "required": {
             "type": "array",
@@ -24,7 +24,7 @@
     "required": [
         "name"
     ],
-    "oneOf": [
+    "anyOf": [
         {
             "required": [
                 "properties"
@@ -36,40 +36,38 @@
             ]
         }
     ],
-    "definitions": {
+    "$defs": {
         "applicability": {
             "type": "object",
             "properties": {
                 "create": {
-                    "$ref": "#/definitions/operation"
+                    "$ref": "#/$defs/operation"
                 },
                 "read": {
                     "type": "boolean"
                 },
                 "update": {
-                    "$ref": "#/definitions/operation"
+                    "$ref": "#/$defs/operation"
                 },
                 "delete": {
-                    "$ref": "#/definitions/operation"
+                    "$ref": "#/$defs/operation"
                 }
             },
-            "additionalProperties": false
+            "unevaluatedProperties": false
         },
         "properties": {
             "type": "object",
-            "patternProperties": {
-                "^[a-zA-Z0-9_]+$": {
-                    "$ref": "http://json-schema.org/draft-07/schema"
-                }
+            "propertyNames": {
+                "pattern": "^[a-zA-Z0-9_]+$",
+                "$ref": "https://json-schema.org/draft/2020-12/schema"
             },
             "minProperties": 1
         },
         "relations": {
             "type": "object",
-            "patternProperties": {
-                "^[a-zA-Z0-9_]+$": {
-                    "$ref": "#/definitions/relation"
-                }
+            "propertyNames": {
+                "pattern": "^[a-zA-Z0-9_]+$",
+                "$ref": "#/$defs/relation"
             },
             "minProperties": 1
         },
@@ -80,13 +78,13 @@
                     "type": "string"
                 },
                 "cardinality": {
-                    "$ref": "#/definitions/cardinality"
+                    "$ref": "#/$defs/cardinality"
                 },
                 "bidirectionality": {
-                    "$ref": "#/definitions/bidirectionality"
+                    "$ref": "#/$defs/bidirectionality"
                 },
                 "constraints": {
-                    "$ref": "#/definitions/constraints"
+                    "$ref": "#/$defs/constraints"
                 }
             },
             "required": [
@@ -108,10 +106,10 @@
                     "type": "boolean"
                 }
             },
-            "additionalProperties": false
+            "unevaluatedProperties": false
         },
         "operation": {
-            "oneOf": [
+            "anyOf": [
                 {
                     "type": "boolean"
                 },
@@ -125,12 +123,12 @@
                     "required": [
                         "transactional"
                     ],
-                    "additionalProperties": false
+                    "unevaluatedProperties": false
                 }
             ]
         },
         "projection": {
-            "$ref": "#/definitions/relation"
+            "$ref": "#/$defs/relation"
         },
         "bidirectionality": {
             "type": "object",
@@ -139,7 +137,7 @@
                     "type": "string"
                 },
                 "projection": {
-                    "$ref": "#/definitions/projection"
+                    "$ref": "#/$defs/projection"
                 }
             },
             "required": [
