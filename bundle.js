@@ -28,24 +28,3 @@ async function bundle() {
 }
 
 bundle();
-
-/*
-
-
-
-
-
-    "oneOf": [
-        {
-            "required": [
-                "properties"
-            ]
-        },
-        {
-            "required": [
-                "relations"
-            ]
-        }
-    ],
-
-    */
