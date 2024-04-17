@@ -15,6 +15,9 @@
         "relations": {
             "$ref": "#/$defs/relations"
         },
+        "controllers": {
+            "$ref": "#/$defs/controllers"
+        },
         "required": {
             "type": "array",
             "items": {
@@ -144,6 +147,38 @@
             "required": [
                 "relation"
             ]
+        },
+        "controllers": {
+            "type": "object",
+            "propertyNames": {
+                "pattern": "^[a-zA-Z0-9_]+$",
+                "$ref": "#/$defs/controller"
+            }
+        },
+        "controller": {
+            "type": "object",
+            "properties": {
+                "method": {
+                    "type": "string",
+                    "enum": [
+                        "GET",
+                        "POST",
+                        "PUT",
+                        "DELETE",
+                        "PATCH"
+                    ]
+                },
+                "type": {
+                    "type": "string",
+                    "enum": [
+                        "resource",
+                        "object"
+                    ]
+                },
+                "input": {
+                    "$ref": "https://json-schema.org/draft/2020-12/schema"
+                }
+            }
         }
     }
 }
