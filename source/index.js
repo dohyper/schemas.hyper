@@ -1,18 +1,18 @@
 
 
-    const configuration-v1 = /** @type {const} @satisfies {import('json-schema-to-ts').JSONSchema} */({
+    const configuration_v1 = /** @type {const} @satisfies {import('json-schema-to-ts').JSONSchema} */({
   "$schema": "http://json-schema.org/draft-07/schema",
   "type": "object"
 })
 
     /**
-     * configuration-v1
-     * @typedef {import('json-schema-to-ts').FromSchema<typeof configuration-v1>} configuration-v1Type
+     * configuration_v1
+     * @typedef {import('json-schema-to-ts').FromSchema<typeof configuration_v1>} configuration_v1Type
      */
-    
+
     
 
-    const resource-v1 = /** @type {const} @satisfies {import('json-schema-to-ts').JSONSchema} */({
+    const resource_v1 = /** @type {const} @satisfies {import('json-schema-to-ts').JSONSchema} */({
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "http://schemas.hyper.mathematikoi.co/resource-v1.0.0.json",
   "type": "object",
@@ -572,10 +572,10 @@
 })
 
     /**
-     * resource-v1
-     * @typedef {import('json-schema-to-ts').FromSchema<typeof resource-v1>} resource-v1Type
+     * resource_v1
+     * @typedef {import('json-schema-to-ts').FromSchema<typeof resource_v1>} resource_v1Type
      */
+
     
-    
-    module.exports = { configuration-v1,resource-v1}
+    module.exports = { configuration_v1,resource_v1}
   

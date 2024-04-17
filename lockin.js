@@ -14,8 +14,7 @@ async function tweak() {
   fs.unlinkSync(main_file_path)
 
   schemas.forEach(async (schema_file, index) => {
-    const name = schema_file.split(".").at(0);
-
+    const name = schema_file.split(".").at(0).replace(/-/g, "_");
     const schema_path = path.join(schemas_directory_path, schema_file);
 
     const schema = require(schema_path);
@@ -32,7 +31,7 @@ async function tweak() {
      * ${name}
      * @typedef {import('json-schema-to-ts').FromSchema<typeof ${name}>} ${name}Type
      */
-    
+
     `;
 
     fs.appendFileSync(main_file_path, type);
