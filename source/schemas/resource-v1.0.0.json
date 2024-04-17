@@ -166,7 +166,8 @@
                         "PUT",
                         "DELETE",
                         "PATCH"
-                    ]
+                    ],
+                    "default": "POST"
                 },
                 "type": {
                     "type": "string",
@@ -177,8 +178,12 @@
                 },
                 "input": {
                     "$ref": "https://json-schema.org/draft/2020-12/schema"
+                },
+                "transactional": {
+                    "type": "boolean"
                 }
-            }
+            },
+            "required": ["type", "input"]
         }
     }
 }
