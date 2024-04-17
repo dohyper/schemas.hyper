@@ -6,7 +6,6 @@
   "scripts": {
     "development": "nodemon --watch './*.js' --watch './source/schemas/ResourceDefinition.json' --exec npm run build",
     "build": "npm run build:lockin && npm run build:types",
-    "build:bundle": "node bundle.js",
     "build:lockin": "node lockin.js",
     "build:types": "npx tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
