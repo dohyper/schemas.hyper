@@ -171,7 +171,7 @@
                 "type": {
                     "type": "string",
                     "enum": [
-                        "resource",
+                        "collection",
                         "object"
                     ]
                 },
