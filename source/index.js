@@ -1,19 +1,20 @@
 
 
-    const ConfigurationDefinition = /** @type {const} @satisfies {import('json-schema-to-ts').JSONSchema} */({
+    const configuration-v1 = /** @type {const} @satisfies {import('json-schema-to-ts').JSONSchema} */({
   "$schema": "http://json-schema.org/draft-07/schema",
   "type": "object"
 })
 
     /**
-     * ConfigurationDefinition
-     * @typedef {import('json-schema-to-ts').FromSchema<typeof ConfigurationDefinition>} ConfigurationDefinitionType
+     * configuration-v1
+     * @typedef {import('json-schema-to-ts').FromSchema<typeof configuration-v1>} configuration-v1Type
      */
     
     
 
-    const ResourceDefinition = /** @type {const} @satisfies {import('json-schema-to-ts').JSONSchema} */({
+    const resource-v1 = /** @type {const} @satisfies {import('json-schema-to-ts').JSONSchema} */({
   "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "http://schemas.hyper.mathematikoi.co/resource-v1.0.0.json",
   "type": "object",
   "properties": {
     "name": {
@@ -571,10 +572,10 @@
 })
 
     /**
-     * ResourceDefinition
-     * @typedef {import('json-schema-to-ts').FromSchema<typeof ResourceDefinition>} ResourceDefinitionType
+     * resource-v1
+     * @typedef {import('json-schema-to-ts').FromSchema<typeof resource-v1>} resource-v1Type
      */
     
     
-    module.exports = { ConfigurationDefinition,ResourceDefinition}
+    module.exports = { configuration-v1,resource-v1}
   

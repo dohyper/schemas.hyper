@@ -1,5 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "http://schemas.hyper.mathematikoi.co/resource-v1.0.0.json",
   "type": "object",
   "properties": {
     "name": {
