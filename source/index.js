@@ -44,17 +44,19 @@
   "$defs": {
     "properties": {
       "type": "object",
-      "propertyNames": {
-        "pattern": "^[a-zA-Z0-9_]+$",
-        "$ref": "https://json-schema.org/draft/2020-12/schema"
+      "patternProperties": {
+        "^[a-zA-Z0-9_]+$": {
+          "$ref": "https://json-schema.org/draft/2020-12/schema"
+        }
       },
       "minProperties": 1
     },
     "relations": {
       "type": "object",
-      "propertyNames": {
-        "pattern": "^[a-zA-Z0-9_]+$",
-        "$ref": "#/$defs/relation"
+      "patternProperties": {
+        "^[a-zA-Z0-9_]+$": {
+          "$ref": "#/$defs/relation"
+        }
       },
       "minProperties": 1
     },
@@ -241,17 +243,19 @@
     },
     "properties": {
       "type": "object",
-      "propertyNames": {
-        "pattern": "^[a-zA-Z0-9_]+$",
-        "$ref": "https://json-schema.org/draft/2020-12/schema"
+      "patternProperties": {
+        "^[a-zA-Z0-9_]+$": {
+          "$ref": "https://json-schema.org/draft/2020-12/schema"
+        }
       },
       "minProperties": 1
     },
     "relations": {
       "type": "object",
-      "propertyNames": {
-        "pattern": "^[a-zA-Z0-9_]+$",
-        "$ref": "#/$defs/relation"
+      "patternProperties": {
+        "^[a-zA-Z0-9_]+$": {
+          "$ref": "#/$defs/relation"
+        }
       },
       "minProperties": 1
     },
@@ -330,9 +334,10 @@
     },
     "controllers": {
       "type": "object",
-      "propertyNames": {
-        "pattern": "^[a-zA-Z0-9_]+$",
-        "$ref": "#/$defs/controller"
+      "patternProperties": {
+        "^[a-zA-Z0-9_]+$": {
+          "$ref": "#/$defs/controller"
+        }
       }
     },
     "controller": {
