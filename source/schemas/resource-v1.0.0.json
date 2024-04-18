@@ -180,8 +180,44 @@
                         "object"
                     ]
                 },
-                "input": {
-                    "$ref": "https://json-schema.org/draft/2020-12/schema"
+                "request": {
+                    "oneOf": [
+                        {
+                            "type": "object",
+                            "properties": {
+                                "name": {
+                                    "type": "string"
+                                },
+                                "properties": {
+                                    "$ref": "#/$defs/properties"
+                                },
+                                "relations": {
+                                    "$ref": "#/$defs/relations"
+                                }
+                            },
+                            "required": [
+                                "name"
+                            ],
+                            "anyOf": [
+                                {
+                                    "required": [
+                                        "properties"
+                                    ]
+                                },
+                                {
+                                    "required": [
+                                        "relations"
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "$ref": "https://spec.openapis.org/oas/3.1/schema/2022-10-07/$defs/request-body-or-reference"
+                        }
+                    ]
+                },
+                "responses": {
+                    "$ref": "https://spec.openapis.org/oas/3.1/schema/2022-10-07/$defs/respones"
                 },
                 "transactional": {
                     "type": "boolean"
