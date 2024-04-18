@@ -15,7 +15,6 @@ async function lockin() {
     if (fs.existsSync(main_file_path)) {
       fs.unlinkSync(main_file_path);
     }
-
     
     const schema_path = path.join(schemas_directory_path, schema_file);
     
