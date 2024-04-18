@@ -1,6 +1,5 @@
 const fs = require("fs");
 const path = require("path");
-const reference = require("@apidevtools/json-schema-ref-parser");
 const { compile } = require("json-schema-to-typescript");
 const schemas_directory_path = path.join(__dirname, "source/schemas");
 
