@@ -1,8 +1,8 @@
 const fs = require("fs");
 const path = require("path");
-
+const { compile, compileFromFile } = require('json-schema-to-typescript');
 const schemas_directory_path = path.join(__dirname, "source/schemas");
-const main_file_path = path.join(__dirname, "source/index.js");
+const main_file_path = path.join(__dirname, "source/index.d.ts");
 
 async function lockin() {
   const schemas = fs
@@ -10,7 +10,9 @@ async function lockin() {
 
   const symbols = [];
 
+  if (fs.existsSync(main_file_path)) {
   fs.unlinkSync(main_file_path);
+}
 
   schemas.forEach(async (schema_file, index) => {
     const name = schema_file.split("-").at(0)
@@ -19,31 +21,10 @@ async function lockin() {
 
     const schema = require(schema_path);
 
-    const type = `
-
-    const ${name} = /** @type {const} @satisfies {import('json-schema-to-ts').JSONSchema} */(${JSON.stringify(
-      schema,
-      null,
-      2
-    )})
-
-    /**
-     * ${name}
-     * @typedef {import('json-schema-to-ts').FromSchema<typeof ${name}>} ${name}Type
-     */
-
-    `;
-
-    fs.appendFileSync(main_file_path, type);
-
-    symbols.push(name);
+    compileFromFile(schema_path)
+    .then(type => fs.appendFileSync(main_file_path, type))
   });
 
-  const exports = `
-    module.exports = { ${symbols.join(",")}}
-  `;
-
-  fs.appendFileSync(main_file_path, exports);
 }
 
 lockin();
