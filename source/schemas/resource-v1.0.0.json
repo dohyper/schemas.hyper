@@ -210,15 +210,10 @@
                                     ]
                                 }
                             ]
-                        },
-                        {
-                            "$ref": "https://spec.openapis.org/oas/3.1/schema/2022-10-07/$defs/request-body-or-reference"
                         }
                     ]
                 },
-                "responses": {
-                    "$ref": "https://spec.openapis.org/oas/3.1/schema/2022-10-07/$defs/respones"
-                },
+              
                 "transactional": {
                     "type": "boolean"
                 }

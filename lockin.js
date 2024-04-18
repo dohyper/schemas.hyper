@@ -11,17 +11,22 @@ async function lockin() {
   schemas.forEach(async (schema_file, index) => {
     const name = schema_file.split("-").at(0);
 
-    const main_file_path = path.join(__dirname, "source", name)
+    const main_file_path = path.join(__dirname, "types", `${name}.d.ts`)
 
     if (fs.existsSync(main_file_path)) {
       fs.unlinkSync(main_file_path);
     }
 
+    
     const schema_path = path.join(schemas_directory_path, schema_file);
+    
+    const schema = require(schema_path)
+
+    schema.$id = name
 
     try {
-      const type = await compile(require(schema_path), name);
-      fs.appendFileSync(main_file_path, type);
+      const type = await compile(schema, name);
+      fs.writeFileSync(main_file_path, type);
     } catch (error) {
       console.log(name, error);
     }
