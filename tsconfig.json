@@ -20,4 +20,4 @@
       // "Go to Definition" in VSCode
       "declarationMap": true
     }
-  }
+}
