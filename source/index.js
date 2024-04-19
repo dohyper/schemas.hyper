@@ -183,45 +183,69 @@
     const resource = /** @type {const} @satisfies {import('json-schema-to-ts').JSONSchema} */({
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "http://schemas.hyper.mathematikoi.co/resource-v1.0.0.json",
+  "$vocabulary": {
+    "https://json-schema.org/draft/2020-12/vocab/core": true,
+    "https://json-schema.org/draft/2020-12/vocab/applicator": true,
+    "https://json-schema.org/draft/2020-12/vocab/validation": true,
+    "https://json-schema.org/draft/2020-12/vocab/meta-data": true
+  },
   "type": "object",
   "properties": {
-    "name": {
-      "type": "string"
+    "$id": {
+      "type": "string",
+      "format": "uri"
     },
-    "applicability": {
-      "$ref": "#/$defs/applicability"
+    "$schema": {
+      "type": "string",
+      "format": "uri"
+    },
+    "type": {
+      "type": "string",
+      "const": "object"
     },
     "properties": {
-      "$ref": "#/$defs/properties"
-    },
-    "relations": {
-      "$ref": "#/$defs/relations"
-    },
-    "controllers": {
-      "$ref": "#/$defs/controllers"
-    },
-    "required": {
-      "type": "array",
-      "items": {
-        "type": "string"
-      }
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "applicability": {
+          "$ref": "#/$defs/applicability"
+        },
+        "properties": {
+          "$ref": "#/$defs/properties"
+        },
+        "relations": {
+          "$ref": "#/$defs/relations"
+        },
+        "controllers": {
+          "$ref": "#/$defs/controllers"
+        },
+        "required": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "anyOf": [
+        {
+          "required": [
+            "properties"
+          ]
+        },
+        {
+          "required": [
+            "relations"
+          ]
+        }
+      ]
     }
   },
-  "required": [
-    "name"
-  ],
-  "anyOf": [
-    {
-      "required": [
-        "properties"
-      ]
-    },
-    {
-      "required": [
-        "relations"
-      ]
-    }
-  ],
   "$defs": {
     "applicability": {
       "type": "object",
@@ -259,42 +283,13 @@
       },
       "minProperties": 1
     },
-    "relation": {
+    "controllers": {
       "type": "object",
-      "properties": {
-        "resource": {
-          "type": "string"
-        },
-        "cardinality": {
-          "$ref": "#/$defs/cardinality"
-        },
-        "bidirectionality": {
-          "$ref": "#/$defs/bidirectionality"
-        },
-        "constraints": {
-          "$ref": "#/$defs/constraints"
+      "patternProperties": {
+        "^[a-zA-Z0-9_]+$": {
+          "$ref": "#/$defs/controller"
         }
-      },
-      "required": [
-        "resource",
-        "cardinality"
-      ]
-    },
-    "cardinality": {
-      "type": "string",
-      "enum": [
-        "to-one",
-        "to-many"
-      ]
-    },
-    "constraints": {
-      "type": "object",
-      "properties": {
-        "unique": {
-          "type": "boolean"
-        }
-      },
-      "unevaluatedProperties": false
+      }
     },
     "operation": {
       "anyOf": [
@@ -315,30 +310,30 @@
         }
       ]
     },
-    "projection": {
-      "$ref": "#/$defs/relation"
-    },
-    "bidirectionality": {
+    "relation": {
       "type": "object",
       "properties": {
-        "relation": {
+        "resource": {
           "type": "string"
         },
-        "projection": {
-          "$ref": "#/$defs/projection"
+        "cardinality": {
+          "type": "string",
+          "enum": [
+            "to-one",
+            "to-many"
+          ]
+        },
+        "bidirectionality": {
+          "$ref": "#/$defs/bidirectionality"
+        },
+        "constraints": {
+          "$ref": "#/$defs/constraints"
         }
       },
       "required": [
-        "relation"
+        "resource",
+        "cardinality"
       ]
-    },
-    "controllers": {
-      "type": "object",
-      "patternProperties": {
-        "^[a-zA-Z0-9_]+$": {
-          "$ref": "#/$defs/controller"
-        }
-      }
     },
     "controller": {
       "type": "object",
@@ -372,6 +367,32 @@
         "type",
         "input"
       ]
+    },
+    "bidirectionality": {
+      "type": "object",
+      "properties": {
+        "relation": {
+          "type": "string"
+        },
+        "projection": {
+          "$ref": "#/$defs/projection"
+        }
+      },
+      "required": [
+        "relation"
+      ]
+    },
+    "projection": {
+      "$ref": "#/$defs/relation"
+    },
+    "constraints": {
+      "type": "object",
+      "properties": {
+        "unique": {
+          "type": "boolean"
+        }
+      },
+      "unevaluatedProperties": false
     }
   }
 })
