@@ -1,13 +1,11 @@
 {
   "name": "@dohyper/schemas",
-  "version": "1.0.1",
+  "version": "1.4.0",
   "description": "",
   "main": "source/index.js",
   "scripts": {
-    "development": "nodemon --watch './*.js' --watch './source/schemas/ResourceDefinition.json' --exec npm run build",
-    "build": "npm run build:lockin && npm run build:types",
+    "build": "npm run build:lockin",
     "build:lockin": "node lockin.js",
-    "build:types": "npx tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "M'bark Erras",
@@ -17,8 +15,8 @@
     "json-schema-to-ts": "^3.0.1"
   },
   "devDependencies": {
+    "json-schema-to-typescript": "^13.1.2",
     "nodemon": "^3.1.0",
     "typescript": "^5.4.5"
-  },
-  "types": "./build/index.d.ts"
+  }
 }
