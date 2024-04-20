@@ -1,12 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "http://schemas.hyper.mathematikoi.co/resource-v1.0.0.json",
-  "$vocabulary": {
-    "https://json-schema.org/draft/2020-12/vocab/core": true,
-    "https://json-schema.org/draft/2020-12/vocab/applicator": true,
-    "https://json-schema.org/draft/2020-12/vocab/validation": true,
-    "https://json-schema.org/draft/2020-12/vocab/meta-data": true
-  },
   "type": "object",
   "properties": {
     "$id": {
@@ -17,50 +11,44 @@
       "type": "string",
       "format": "uri"
     },
-    "type": {
-      "type": "string",
-      "const": "object"
+    "name": {
+      "type": "string"
+    },
+    "applicability": {
+      "$ref": "#/$defs/applicability"
     },
     "properties": {
-      "name": {
+      "$ref": "#/$defs/properties"
+    },
+    "relations": {
+      "$ref": "#/$defs/relations"
+    },
+    "controllers": {
+      "$ref": "#/$defs/controllers"
+    },
+    "required": {
+      "type": "array",
+      "items": {
         "type": "string"
       },
-      "applicability": {
-        "$ref": "#/$defs/applicability"
-      },
-      "properties": {
-        "$ref": "#/$defs/properties"
-      },
-      "relations": {
-        "$ref": "#/$defs/relations"
-      },
-      "controllers": {
-        "$ref": "#/$defs/controllers"
-      },
-      "required": {
-        "type": "array",
-        "items": {
-          "type": "string"
-        },
-        "minItems": 1
-      }
-    },
-    "required": [
-      "name"
-    ],
-    "anyOf": [
-      {
-        "required": [
-          "properties"
-        ]
-      },
-      {
-        "required": [
-          "relations"
-        ]
-      }
-    ]
+      "minItems": 1
+    }
   },
+  "required": [
+    "name", "$schema"
+  ],
+  "anyOf": [
+    {
+      "required": [
+        "properties"
+      ]
+    },
+    {
+      "required": [
+        "relations"
+      ]
+    }
+  ],
   "$defs": {
     "applicability": {
       "type": "object",
@@ -247,8 +235,7 @@
         }
       },
       "required": [
-        "type",
-        "input"
+        "type"
       ]
     }
   }
