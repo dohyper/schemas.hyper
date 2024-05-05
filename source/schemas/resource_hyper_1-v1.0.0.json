@@ -1,6 +1,6 @@
 {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
-    "$id": "http://schemas.hyper.mathematikoi.co/resource-v1.0.0.json",
+    "$id": "resource",
     "type": "object",
     "properties": {
         "$id": {
@@ -200,11 +200,38 @@
                         "object"
                     ]
                 },
-                "requestBody": {
-                    "$ref": "https://spec.openapis.org/oas/3.0/schema/2021-09-28#/definitions/RequestBody"
-                },
-                "responses": {
-                    "$ref": "https://spec.openapis.org/oas/3.0/schema/2021-09-28#/definitions/Responses"
+                "request": {
+                    "oneOf": [
+                        {
+                            "type": "object",
+                            "properties": {
+                                "name": {
+                                    "type": "string"
+                                },
+                                "properties": {
+                                    "$ref": "#/$defs/properties"
+                                },
+                                "relations": {
+                                    "$ref": "#/$defs/relations"
+                                }
+                            },
+                            "required": [
+                                "name"
+                            ],
+                            "anyOf": [
+                                {
+                                    "required": [
+                                        "properties"
+                                    ]
+                                },
+                                {
+                                    "required": [
+                                        "relations"
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
                 },
                 "transactional": {
                     "type": "boolean"

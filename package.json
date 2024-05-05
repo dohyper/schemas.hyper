@@ -1,5 +1,5 @@
 {
-  "name": "@dohyper/schemas",
+  "name": "@dohyper/schemas.hyper",
   "version": "1.5.4",
   "description": "",
   "main": "source/index.js",
