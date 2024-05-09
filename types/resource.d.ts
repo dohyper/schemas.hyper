@@ -8,7 +8,10 @@
 export type Resource = {
   [k: string]: unknown;
 } & {
+  $id?: string;
+  $schema: string;
   name: string;
+  idable?: ClientGeneratedIdsSupport;
   applicability?: Applicability;
   properties?: Properties;
   relations?: Relations;
@@ -19,6 +22,10 @@ export type Resource = {
   required?: [string, ...string[]];
   [k: string]: unknown;
 };
+/**
+ * this property specifies whether the resource implementation support client-generated ids.
+ */
+export type ClientGeneratedIdsSupport = "false";
 export type Operation =
   | boolean
   | {
@@ -505,6 +512,7 @@ export interface Relation {
   bidirectionality?: Bidirectionality;
   applicability?: Applicability;
   constraints?: Constraints;
+  readOnly?: boolean & string;
   [k: string]: unknown;
 }
 export interface Bidirectionality {
@@ -526,11 +534,7 @@ export interface Controllers {
 export interface Controller {
   method?: "GET" | "POST" | "PUT" | "DELETE" | "PATCH";
   type: "collection" | "object";
-  request?:
-    | {
-        [k: string]: unknown;
-      }
-    | RequestBody;
+  requestBody?: RequestBody;
   responses?: Responses;
   transactional?: boolean;
   [k: string]: unknown;

@@ -1,6 +1,6 @@
 {
   "name": "@dohyper/schemas.hyper",
-  "version": "1.5.4",
+  "version": "0.0.0",
   "description": "",
   "main": "source/index.js",
   "scripts": {
@@ -10,13 +10,7 @@
   },
   "author": "M'bark Erras",
   "license": "ISC",
-  "dependencies": {
-    "@apidevtools/json-schema-ref-parser": "^11.5.4",
-    "json-schema-to-ts": "^3.0.1"
-  },
   "devDependencies": {
-    "json-schema-to-typescript": "^13.1.2",
-    "nodemon": "^3.1.0",
-    "typescript": "^5.4.5"
+    "json-schema-to-typescript": "^13.1.2"
   }
 }
