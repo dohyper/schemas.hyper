@@ -25,8 +25,6 @@ async function lockin() {
 
       const schema = require(schema_path);
 
-      // schema.$id = name;
-
       try {
         const type = await compile(schema, name);
         fs.writeFileSync(main_file_path, type);

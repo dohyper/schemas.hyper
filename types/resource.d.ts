@@ -5,7 +5,7 @@
  * and run json-schema-to-typescript to regenerate this file.
  */
 
-export type HttpSchemasHyperMathematikoiCoResourceV100Json = {
+export type Resource = {
   [k: string]: unknown;
 } & {
   $id?: string;
