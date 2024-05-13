@@ -25,7 +25,7 @@ async function lockin() {
 
       const schema = require(schema_path);
 
-      schema.$id = name;
+      // schema.$id = name;
 
       try {
         const type = await compile(schema, name);

@@ -77,7 +77,7 @@
             "type": "object",
             "patternProperties": {
                 "^[a-zA-Z0-9_]+$": {
-                    "$ref": "https://json-schema.org/draft/2020-12/schema"
+                    "$ref": "#/$defs/json-schema"
                 }
             },
             "minProperties": 1
@@ -213,6 +213,9 @@
             "required": [
                 "type"
             ]
+        },
+        "json-schema": {
+            "$ref": "https://json-schema.org/draft/2020-12/schema"
         }
     }
 }
